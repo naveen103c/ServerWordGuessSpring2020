@@ -1,12 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="230e6191-6795-40cf-949c-a2990a63c17f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/P4Server/ServerWordGuessSpring2020.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/P4Server/src/main/resources/initialServerBackground.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/P4Server/src/main/java/ServerLogic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/P4Server/src/main/java/WordGuessServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/P4Server/src/main/java/WordGuessServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,16 +32,16 @@
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="MERGE" />
-  </component>
-  <component name="IgnoredFileRootStore">
-    <option name="generatedRoots">
-      <set>
-        <option value="C:\Users\hhsro\Desktop\UIC\CS 342\Word_Guessing_Name_SERVER\.idea" />
-      </set>
-    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -39,11 +55,11 @@
   </component>
   <component name="ProjectId" id="1b0aj5XPWFiyCa3VEQTVxMqsu8t" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -51,16 +67,13 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.notifications" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Scout\OneDrive - University of Illinois at Chicago\Spring_2020\CS 342 - Software Design\projects\project04\342-Project-4-Word-Guessing-Name-Server\P4Server\src\main\resources" />
-    </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
@@ -81,18 +94,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -103,49 +104,53 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587771597288</updated>
+      <workItem from="1587850424327" duration="5453000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="277" y="96" key="#Project_Structure" timestamp="1587849991944">
-      <screen x="0" y="0" width="1368" height="872" />
+    <state width="724" height="223" key="GridCell.Tab.0.bottom" timestamp="1587851355689">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="277" y="96" key="#Project_Structure/0.0.1368.872/800.-1080.1920.1040@0.0.1368.872" timestamp="1587849991944" />
-    <state x="1262" y="-962" key="CommitChangelistDialog2" timestamp="1587851502789">
-      <screen x="800" y="-1080" width="1920" height="1040" />
-    </state>
-    <state x="1262" y="-962" key="CommitChangelistDialog2/0.0.1368.872/800.-1080.1920.1040@800.-1080.1920.1040" timestamp="1587851502789" />
-    <state width="912" height="281" key="GridCell.Tab.0.bottom" timestamp="1587851502904">
-      <screen x="800" y="-1080" width="1920" height="1040" />
-    </state>
-    <state width="1325" height="227" key="GridCell.Tab.0.bottom/0.0.1368.872/800.-1080.1920.1040@0.0.1368.872" timestamp="1587849932106" />
-    <state width="912" height="281" key="GridCell.Tab.0.bottom/0.0.1368.872/800.-1080.1920.1040@800.-1080.1920.1040" timestamp="1587851502904" />
     <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1587801346489" />
-    <state width="912" height="281" key="GridCell.Tab.0.center" timestamp="1587851502903">
-      <screen x="800" y="-1080" width="1920" height="1040" />
+    <state width="724" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1587851355689" />
+    <state width="724" height="223" key="GridCell.Tab.0.center" timestamp="1587851355689">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1325" height="227" key="GridCell.Tab.0.center/0.0.1368.872/800.-1080.1920.1040@0.0.1368.872" timestamp="1587849932104" />
-    <state width="912" height="281" key="GridCell.Tab.0.center/0.0.1368.872/800.-1080.1920.1040@800.-1080.1920.1040" timestamp="1587851502903" />
     <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1587801346489" />
-    <state width="912" height="281" key="GridCell.Tab.0.left" timestamp="1587851502903">
-      <screen x="800" y="-1080" width="1920" height="1040" />
+    <state width="724" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1587851355689" />
+    <state width="724" height="223" key="GridCell.Tab.0.left" timestamp="1587851355689">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1325" height="227" key="GridCell.Tab.0.left/0.0.1368.872/800.-1080.1920.1040@0.0.1368.872" timestamp="1587849932102" />
-    <state width="912" height="281" key="GridCell.Tab.0.left/0.0.1368.872/800.-1080.1920.1040@800.-1080.1920.1040" timestamp="1587851502903" />
     <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1587801346489" />
-    <state width="912" height="281" key="GridCell.Tab.0.right" timestamp="1587851502904">
-      <screen x="800" y="-1080" width="1920" height="1040" />
+    <state width="724" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1587851355689" />
+    <state width="724" height="223" key="GridCell.Tab.0.right" timestamp="1587851355689">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1325" height="227" key="GridCell.Tab.0.right/0.0.1368.872/800.-1080.1920.1040@0.0.1368.872" timestamp="1587849932105" />
-    <state width="912" height="281" key="GridCell.Tab.0.right/0.0.1368.872/800.-1080.1920.1040@800.-1080.1920.1040" timestamp="1587851502904" />
     <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1587801346489" />
-    <state x="147" y="65" key="MergeDialog" timestamp="1587773967671">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state width="724" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1587851355689" />
+    <state x="147" y="68" key="MergeDialog" timestamp="1587851704566">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1587773967671" />
+    <state x="147" y="68" key="MergeDialog/0.0.1536.864@0.0.1536.864" timestamp="1587851704566" />
     <state x="481" y="128" key="MultipleFileMergeDialog" timestamp="1587774186064">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -158,15 +163,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1587773319210" />
-    <state x="1832" y="-823" key="Vcs.Push.Dialog.v2" timestamp="1587851519095">
-      <screen x="800" y="-1080" width="1920" height="1040" />
+    <state x="578" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587851668465">
+      <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="1832" y="-823" key="Vcs.Push.Dialog.v2/0.0.1368.872/800.-1080.1920.1040@800.-1080.1920.1040" timestamp="1587851519095" />
-    <state x="1523" y="-665" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587851162427">
-      <screen x="800" y="-1080" width="1920" height="1040" />
-    </state>
-    <state x="1523" y="-665" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1368.872/800.-1080.1920.1040@800.-1080.1920.1040" timestamp="1587851162427" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1587774180160" />
+    <state x="578" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.864@0.0.1536.864" timestamp="1587851668465" />
     <state x="434" y="260" key="git4idea.ui.GitUnstashDialog" timestamp="1587772295179">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
