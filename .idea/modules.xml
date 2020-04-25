@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/342-Project-4-Word-Guessing-Name-Server.iml" filepath="$PROJECT_DIR$/.idea/342-Project-4-Word-Guessing-Name-Server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/P4Server/ServerWordGuessSpring2020.iml" filepath="$PROJECT_DIR$/P4Server/ServerWordGuessSpring2020.iml" />
     </modules>
   </component>
 </project>

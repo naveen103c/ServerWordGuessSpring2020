@@ -21,6 +21,7 @@ public class WordGuessServer extends Application {
 		primaryStage.show();
 		// ronaldo is pushing
 		// shahmeer test push
+		// luke test push
 	}
 
 }
