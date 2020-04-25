@@ -52,11 +52,11 @@ public class ServerLogic {
         foodCategoryWords.add("Samosas");
         foodCategoryWords.add("Dolma");
         foodCategoryWords.add("Haleem");
-        foodCategoryWords.add("Nuggets");
+        foodCategoryWords.add("Pavlova");
         foodCategoryWords.add("Sushi");
         foodCategoryWords.add("Shakshuka");
         foodCategoryWords.add("Ramen");
-        foodCategoryWords.add("Lasagna");
+        foodCategoryWords.add("Lamington");
         foodCategoryWords.add("Quesadilla");
     }
 
