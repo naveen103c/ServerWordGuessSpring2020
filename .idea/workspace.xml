@@ -19,13 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="230e6191-6795-40cf-949c-a2990a63c17f" name="Default Changelist" comment="initial server screen">
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/P4Server/ServerWordGuessSpring2020.iml" beforeDir="false" afterPath="$PROJECT_DIR$/P4Server/ServerWordGuessSpring2020.iml" afterDir="false" />
+    <list default="true" id="230e6191-6795-40cf-949c-a2990a63c17f" name="Default Changelist" comment="changed a couple words in foods category">
       <change beforePath="$PROJECT_DIR$/P4Server/src/main/java/ServerLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/P4Server/src/main/java/ServerLogic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/P4Server/src/main/java/WordGuessServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/P4Server/src/main/java/WordGuessServer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,6 +206,10 @@
     </state>
     <state x="800" y="-878" key="Vcs.Push.Dialog.v2/0.0.1368.872/800.-1080.1920.1040@800.-1080.1920.1040" timestamp="1587863381409" />
     <state x="0" y="168" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1587857623902" />
+    <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1587873682631">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="93" y="93" width="1350" height="678" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.864@0.0.1536.864" timestamp="1587873682631" />
     <state x="578" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587851668465">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

@@ -11,20 +11,22 @@ import java.util.function.Consumer;
 
 public class ServerLogic {
     int portNum;
-    int count = 1;
     Consumer<Serializable> callback;
     TheServer server = new TheServer();
-    ArrayList<String> gamesCategoryWords = new ArrayList<>();
-    ArrayList<String> sportsCategoryWords = new ArrayList<>();
-    ArrayList<String> foodCategoryWords = new ArrayList<>();
-
+    ArrayList<String> gamesCategoryWords;
+    ArrayList<String> sportsCategoryWords;
+    ArrayList<String> foodCategoryWords;
+    ClientThread client;
+    GuessInfo guessInformation;
 
     ServerLogic(Consumer<Serializable> call, int port) {
         callback = call;
         portNum = port;
+        guessInformation = new GuessInfo();
         server.start();
 
-        // populate gamesCategoryWords with words
+        // initialize gamesCategoryWords and populate with words
+        gamesCategoryWords = new ArrayList<>();
         gamesCategoryWords.add("Doom");
         gamesCategoryWords.add("Minecraft");
         gamesCategoryWords.add("Starcraft");
@@ -36,7 +38,8 @@ public class ServerLogic {
         gamesCategoryWords.add("Divinity");
         gamesCategoryWords.add("Warframe");
 
-        // populate sportsCategoryWords with words
+        // initialize sportsCategoryWords and populate with words
+        sportsCategoryWords = new ArrayList<>();
         sportsCategoryWords.add("Volleyball");
         sportsCategoryWords.add("Hockey");
         sportsCategoryWords.add("Bowling");
@@ -48,7 +51,8 @@ public class ServerLogic {
         sportsCategoryWords.add("Golf");
         sportsCategoryWords.add("Cricket");
 
-        // populate foodCategoryWords with words
+        // initialize foodCategoryWords and populate with words
+        foodCategoryWords = new ArrayList<>();
         foodCategoryWords.add("Sopes");
         foodCategoryWords.add("Samosas");
         foodCategoryWords.add("Dolma");
@@ -62,15 +66,13 @@ public class ServerLogic {
     }
 
     public class TheServer extends Thread {
-        @Override
+        // start the server and wait until a client has connected
         public void run() {
             try(ServerSocket mySocket = new ServerSocket(portNum);) {
                 System.out.println("Server is waiting for a client!");
-                while (true) {
-                    ClientThread client = new ClientThread(mySocket.accept());
-                    callback.accept("Client " + count + " has connected");
+                    client = new ClientThread(mySocket.accept());
+                    callback.accept("A client has connected!");
                     client.start();
-                }
             }
             catch (Exception e) {
                 callback.accept("Serer socket did not launch");
@@ -84,12 +86,19 @@ public class ServerLogic {
         ObjectOutputStream out;
 
         ClientThread(Socket s) {
-            connection = s;
+            this.connection = s;
         }
 
         // update client with relevant info
         public void updateClient() {
-
+//            try {
+//                client.out.writeObject();
+//                client.out.reset();
+//                client.out.reset();
+//            }
+//            catch (Exception e) {
+//
+//            }
         }
 
         // update server with relevant info
@@ -119,7 +128,8 @@ public class ServerLogic {
 //                    callback.accept("Something is wrong with the socket connection");
 //                    break;
 //                }
-                //run game functionality
-            } // end of game functionality while loop
+//                run game functionality
+//            } // end of game functionality while loop
         }// end of run method
     }
+}
