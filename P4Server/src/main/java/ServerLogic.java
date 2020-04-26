@@ -11,6 +11,7 @@ import java.util.function.Consumer;
 
 public class ServerLogic {
     int portNum;
+    int count = 1;
     Consumer<Serializable> callback;
     TheServer server = new TheServer();
     ArrayList<String> gamesCategoryWords = new ArrayList<>();
@@ -67,6 +68,8 @@ public class ServerLogic {
                 System.out.println("Server is waiting for a client!");
                 while (true) {
                     ClientThread client = new ClientThread(mySocket.accept());
+                    callback.accept("Client " + count + " has connected");
+                    client.start();
                 }
             }
             catch (Exception e) {
@@ -116,8 +119,7 @@ public class ServerLogic {
 //                    callback.accept("Something is wrong with the socket connection");
 //                    break;
 //                }
-//                run game functionality
-//            } // end of game functionality while loop
+                //run game functionality
+            } // end of game functionality while loop
         }// end of run method
     }
-}

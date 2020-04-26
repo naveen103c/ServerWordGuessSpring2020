@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -14,6 +15,7 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.util.HashMap;
 
@@ -59,8 +61,6 @@ public class WordGuessServer extends Application {
 		primaryStage.setTitle("(server) Playing word guess!!!");
 		primaryStage.show();
 
-
-
 		// ----------------------------------------------
 		// --------------- EVENT HANDLERS ---------------
 		// ----------------------------------------------
@@ -78,6 +78,15 @@ public class WordGuessServer extends Application {
 					listItems.getItems().add(data.toString());
 				});
 			}, Integer.parseInt(portNumber.getText())); // get port number
+		});
+
+		//if window is closed the program exits out
+		primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+			@Override
+			public void handle(WindowEvent event) {
+				Platform.exit();
+				System.exit(0);
+			}
 		});
 
 	}
