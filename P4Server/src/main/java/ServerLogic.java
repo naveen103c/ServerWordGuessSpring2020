@@ -8,15 +8,17 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.function.Consumer;
+import java.util.Random;
 
 public class ServerLogic {
     int portNum;
+    int clientNum = 1;
+    ArrayList<ClientThread> clients = new ArrayList<ClientThread>();
     Consumer<Serializable> callback;
     TheServer server = new TheServer();
     ArrayList<String> gamesCategoryWords;
     ArrayList<String> sportsCategoryWords;
     ArrayList<String> foodCategoryWords;
-    ClientThread client;
     GuessInfo guessInformation;
 
     ServerLogic(Consumer<Serializable> call, int port) {
@@ -68,25 +70,31 @@ public class ServerLogic {
     public class TheServer extends Thread {
         // start the server and wait until a client has connected
         public void run() {
-            try(ServerSocket mySocket = new ServerSocket(portNum);) {
+            try(ServerSocket mySocket = new ServerSocket(portNum)) {
                 System.out.println("Server is waiting for a client!");
-                    client = new ClientThread(mySocket.accept());
+                while(true) {
+                    ClientThread c = new ClientThread(mySocket.accept(), clientNum);
                     callback.accept("A client has connected!");
-                    client.start();
+                    clients.add(c);
+                    c.start();
+                    clientNum++;
+                }
             }
             catch (Exception e) {
-                callback.accept("Serer socket did not launch");
+                callback.accept("Server socket did not launch");
             }
         }
     }
 
     public class ClientThread extends Thread {
         Socket connection;
+        int number;
         ObjectInputStream in;
         ObjectOutputStream out;
 
-        ClientThread(Socket s) {
+        ClientThread(Socket s, int count) {
             this.connection = s;
+            this.number = count;
         }
 
         // update client with relevant info
@@ -120,16 +128,47 @@ public class ServerLogic {
                 System.out.println("Streams not open");
             }// end of try catch
 
-//            while(true) {
-//                try {
-//
-//                }
-//                catch (Exception e) {
-//                    callback.accept("Something is wrong with the socket connection");
-//                    break;
-//                }
+            GuessInfo serverInfo = new GuessInfo();
+
+            try {
+                GuessInfo playerInfo = (GuessInfo) in.readObject();
+                serverInfo.setCategories(playerInfo.getCategories().get(0)); // disgosten line.
+            }
+            catch (Exception e){
+                System.out.println("Ain't workin' properly");
+            }
+
+            Random rand = new Random();
+
+            int randomNum =  rand.nextInt(10);
+            String word;
+
+            if(serverInfo.getCategories().get(0) == "Games")
+                word = gamesCategoryWords.get(randomNum);
+            else if(serverInfo.getCategories().get(0) == "Sports")
+                word = sportsCategoryWords.get(randomNum);
+            else // If the wrong word given is from category Foods then this might be the issue.
+                word = foodCategoryWords.get(randomNum);
+
+            serverInfo.setWord(word.length());
+            try {
+                out.writeObject(serverInfo);
+            }
+            catch(Exception e){
+                System.out.println("Ain't workin' properly #2");
+            }
+
+            while(true) {
+                try {
+
+
+                }
+                catch (Exception e) {
+                    callback.accept("Something is wrong with the socket connection");
+                    break;
+                }
 //                run game functionality
-//            } // end of game functionality while loop
+            } // end of game functionality while loop
         }// end of run method
     }
 }

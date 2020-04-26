@@ -29,8 +29,8 @@ public class GuessInfo implements Serializable {
         return guesses;
     }
 
-    public void setGuesses(ArrayList<Character> guesses) {
-        this.guesses = guesses;
+    public void setGuesses(char c) {
+        this.guesses.add(c);
     }
 
     public String getWord() {
@@ -42,11 +42,23 @@ public class GuessInfo implements Serializable {
             word.concat("_");
     }
 
+    public void setWord(String name) {
+        word = name;
+    }
+
     public ArrayList<String> getCategories() {
         return categories;
     }
 
     public void setCategories(String category) {
         categories.add(category);
+    }
+
+    public int getNumWordsGuessed() {
+        return numWordsGuessed;
+    }
+
+    public void setNumWordsGuessed(int numWordsGuessed) {
+        this.numWordsGuessed = numWordsGuessed;
     }
 }
