@@ -1,8 +1,10 @@
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
@@ -13,7 +15,13 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.util.HashMap;
+
 public class WordGuessServer extends Application {
+
+	HashMap<String, Scene> sceneMap;
+	ListView<String> listItems;
+	ServerLogic serverConnection;
 
 	// set up initial scene for entering portNumber
 	Button serverChoice;
@@ -30,11 +38,58 @@ public class WordGuessServer extends Application {
 		launch(args);
 	}
 
-	//feel free to remove the starter code from this method
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		// TODO Auto-generated method stub
+
+		// ---------------------------------------------------
+		// --------------- INITIALIZE SCENEMAP ---------------
+		// ---------------------------------------------------
+		// initialize the hashmap to store scenes
+		sceneMap = new HashMap<String, Scene>();
+
+		// initialize the ListView
+		listItems = new ListView<String>();
+
+		// load hashmap with two server GUI's
+		sceneMap.put("start", startScreenGui());
+		sceneMap.put("server",  createServerGui());
+
+		// display initial server GUI
+		primaryStage.setScene(sceneMap.get("start"));
 		primaryStage.setTitle("(server) Playing word guess!!!");
+		primaryStage.show();
+
+
+
+		// ----------------------------------------------
+		// --------------- EVENT HANDLERS ---------------
+		// ----------------------------------------------
+		// event handler for start server button
+		serverChoice.setOnAction(e->{ primaryStage.setScene(sceneMap.get("server"));
+			primaryStage.setTitle("Server");
+
+			serverConnection = new ServerLogic(data -> {
+				Platform.runLater(()->{
+
+					// make listItems autoscroll
+					int index = listItems.getItems().size();
+					listItems.scrollTo(index);
+
+					listItems.getItems().add(data.toString());
+				});
+			}, Integer.parseInt(portNumber.getText())); // get port number
+		});
+
+	}
+
+
+
+
+	// ----------------------------------------------
+	// --------------- SCENE BUILDERS ---------------
+	// ----------------------------------------------
+	// create initial GUI
+	private Scene startScreenGui() {
 
 		// adjust serverChoice button dimensions
 		serverChoice = new Button("Start Server!");
@@ -59,10 +114,18 @@ public class WordGuessServer extends Application {
 		startPane.setTop(portEntry);
 		startPane.setBackground(serverBackgroundImage);
 
-		// create new scene with port # input, and textfield
-		Scene scene = new Scene(startPane,600,600);
-		primaryStage.setScene(scene);
-		primaryStage.show();
+		// create new scene with port # input, textfield, and background image
+		return new Scene(startPane, 500, 600);
+	}
+
+	// create the server GUI
+	public Scene createServerGui() {
+		BorderPane pane = new BorderPane();
+		pane.setPadding(new Insets(70));
+		// pane.setStyle("-fx-background-color: gray");
+		pane.setCenter(listItems);
+
+		return new Scene(pane, 500, 400);
 	}
 
 }
