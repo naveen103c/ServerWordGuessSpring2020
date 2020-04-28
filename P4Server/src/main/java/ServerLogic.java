@@ -151,7 +151,7 @@ public class ServerLogic {
             }
 
 
-            if(serverInfo.getCategories().get(0).equals("Games"))
+            if(serverInfo.getCategories().get(0).equals("Video Games"))
                 words.add(gamesCategoryWords.get(randomNum));
             else if(serverInfo.getCategories().get(0).equals("Sports"))
                 words.add(sportsCategoryWords.get(randomNum));
