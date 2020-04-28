@@ -29,42 +29,42 @@ public class ServerLogic {
 
         // initialize gamesCategoryWords and populate with words
         gamesCategoryWords = new ArrayList<>();
-        gamesCategoryWords.add("Doom");
-        gamesCategoryWords.add("Minecraft");
-        gamesCategoryWords.add("Starcraft");
-        gamesCategoryWords.add("Halo");
-        gamesCategoryWords.add("Portal");
-        gamesCategoryWords.add("Destiny");
-        gamesCategoryWords.add("Diablo");
-        gamesCategoryWords.add("Cuphead");
-        gamesCategoryWords.add("Divinity");
-        gamesCategoryWords.add("Warframe");
+        gamesCategoryWords.add("DOOM");
+        gamesCategoryWords.add("MINECRAFT");
+        gamesCategoryWords.add("STARCRAFT");
+        gamesCategoryWords.add("HALO");
+        gamesCategoryWords.add("PORTAL");
+        gamesCategoryWords.add("DESTINY");
+        gamesCategoryWords.add("DIABLO");
+        gamesCategoryWords.add("CUPHEAD");
+        gamesCategoryWords.add("DIVINITY");
+        gamesCategoryWords.add("WARFRAME");
 
         // initialize sportsCategoryWords and populate with words
         sportsCategoryWords = new ArrayList<>();
-        sportsCategoryWords.add("Volleyball");
-        sportsCategoryWords.add("Hockey");
-        sportsCategoryWords.add("Bowling");
-        sportsCategoryWords.add("Basketball");
-        sportsCategoryWords.add("Football");
-        sportsCategoryWords.add("Soccer");
-        sportsCategoryWords.add("Baseball");
-        sportsCategoryWords.add("Tennis");
-        sportsCategoryWords.add("Golf");
-        sportsCategoryWords.add("Cricket");
+        sportsCategoryWords.add("VOLLEYBALL");
+        sportsCategoryWords.add("HOCKEY");
+        sportsCategoryWords.add("BOWLING");
+        sportsCategoryWords.add("BASKETBALL");
+        sportsCategoryWords.add("FOOTBALL");
+        sportsCategoryWords.add("SOCCER");
+        sportsCategoryWords.add("BASEBALL");
+        sportsCategoryWords.add("TENNIS");
+        sportsCategoryWords.add("GOLF");
+        sportsCategoryWords.add("CRICKET");
 
         // initialize foodCategoryWords and populate with words
         foodCategoryWords = new ArrayList<>();
-        foodCategoryWords.add("Sopes");
-        foodCategoryWords.add("Samosas");
-        foodCategoryWords.add("Dolma");
-        foodCategoryWords.add("Haleem");
-        foodCategoryWords.add("Pavlova");
-        foodCategoryWords.add("Sushi");
-        foodCategoryWords.add("Shakshuka");
-        foodCategoryWords.add("Ramen");
-        foodCategoryWords.add("Lamington");
-        foodCategoryWords.add("Quesadilla");
+        foodCategoryWords.add("SOPES");
+        foodCategoryWords.add("SAMOSAS");
+        foodCategoryWords.add("DOLMA");
+        foodCategoryWords.add("HALEEM");
+        foodCategoryWords.add("PAVLOV");
+        foodCategoryWords.add("SUSHI");
+        foodCategoryWords.add("SHAKSHUKA");
+        foodCategoryWords.add("RAMEN");
+        foodCategoryWords.add("LAMINGTON");
+        foodCategoryWords.add("QUESADILLA");
     }
 
     public class TheServer extends Thread {
@@ -151,9 +151,9 @@ public class ServerLogic {
             }
 
 
-            if(serverInfo.getCategories().get(0) == "Games")
+            if(serverInfo.getCategories().get(0).equals("Games"))
                 words.add(gamesCategoryWords.get(randomNum));
-            else if(serverInfo.getCategories().get(0) == "Sports")
+            else if(serverInfo.getCategories().get(0).equals("Sports"))
                 words.add(sportsCategoryWords.get(randomNum));
             else // If the wrong word given is from category Foods then this might be the issue.
                 words.add(foodCategoryWords.get(randomNum));
@@ -232,9 +232,9 @@ public class ServerLogic {
                             else{
                                 for(int i = 0; i < words.get(words.size() - 1).length(); i++){
                                     if(words.get(words.size() - 1).charAt(i) == letter)
-                                        wordCreation.concat(Character.toString(letter));
+                                        wordCreation = wordCreation.concat(Character.toString(letter));
                                     else
-                                        wordCreation.concat("_");
+                                        wordCreation = wordCreation.concat("_");
                                 }
                                 serverInfo.setWord(wordCreation);
                                 // If the player guesses the entire word correctly.

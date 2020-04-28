@@ -43,7 +43,7 @@ public class GuessInfo implements Serializable {
 
     public void setWord(int length) {
         for(int i = 0; i < length; i++)
-            word.concat("_");
+            word = word.concat("_");
     }
 
     public void setWord(String name) {
