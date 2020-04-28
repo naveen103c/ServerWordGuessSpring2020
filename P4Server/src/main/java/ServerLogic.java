@@ -186,6 +186,7 @@ public class ServerLogic {
                             if(words.get(words.size() - 1).indexOf(letter) == -1){ // Still needs so much work
                                 serverInfo.setNumWrongGuesses(serverInfo.getNumWrongGuesses() + 1);
                                 if(serverInfo.getNumWrongGuesses() == 7){
+
                                     serverInfo.setNumWordsGuessed(serverInfo.getNumWordsGuessed() + 1);
                                     serverInfo.clearGuesses();
                                     serverInfo.removeCategory();
