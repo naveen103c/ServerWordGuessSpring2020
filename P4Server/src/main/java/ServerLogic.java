@@ -290,6 +290,13 @@ public class ServerLogic {
                     else if(gameOver){
                         playerInfo = (GuessInfo) in.readObject();
 
+                        if(playerInfo == null) {
+                            callback.accept("Player " + number + " left the game.");
+                            clients.remove(this);
+                            break;
+                        }
+                        else
+                            serverInfo = playerInfo;
                     }
                 }
                 catch (Exception e) {
