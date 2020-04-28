@@ -185,7 +185,7 @@ public class ServerLogic {
                             // If the letter doesn't exist in the word
                             if(words.get(words.size() - 1).indexOf(letter) == -1){ // Still needs so much work
                                 serverInfo.setNumWrongGuesses(serverInfo.getNumWrongGuesses() + 1);
-                                if(serverInfo.getNumWrongGuesses() == 7){
+                                if(serverInfo.getNumWrongGuesses() == 6){
 
                                     serverInfo.setNumWordsGuessed(serverInfo.getNumWordsGuessed() + 1);
                                     serverInfo.clearGuesses();
@@ -228,6 +228,7 @@ public class ServerLogic {
 //                                    }
 
                                 }
+                                out.reset();
                                 out.writeObject(serverInfo);
                             }
                             // If the letter exists in the word being guessed
@@ -248,7 +249,13 @@ public class ServerLogic {
                                     guess = false;
                                     category = true;
                                     gameOver = false;
-
+                                    if(serverInfo.getCategories().size() == 3){
+                                        guess = false;
+                                        category = false;
+                                        gameOver = true;
+                                        callback.accept("Player " + number + " won the game!");
+                                        serverInfo.setWord("Victory");
+                                    }
                                 }
                                 out.reset();
                                 out.writeObject(serverInfo); // Send the GuessInfo after the guess.
@@ -265,10 +272,10 @@ public class ServerLogic {
                             int lastIndex = serverInfo.getCategories().size() - 1;
 
                             String randWord;
-                            if (serverInfo.getCategories().get(lastIndex) == "Video Games")
+                            if (serverInfo.getCategories().get(lastIndex).equals("Video Games"))
                                 //words.add(gamesCategoryWords.get(randomNum));
                                 randWord = gamesCategoryWords.get(randomNum);
-                            else if (serverInfo.getCategories().get(lastIndex) == "Sports")
+                            else if (serverInfo.getCategories().get(lastIndex).equals("Sports"))
                                 //words.add(sportsCategoryWords.get(randomNum));
                                 randWord = sportsCategoryWords.get(randomNum);
                             else // If the wrong word given is from category Foods then this might be the issue.
