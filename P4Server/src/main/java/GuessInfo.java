@@ -17,6 +17,10 @@ public class GuessInfo implements Serializable {
         numWordsGuessed = 0;
     }
 
+    public void clearGuesses(){
+        this.guesses.clear();
+    }
+
     public int getNumWrongGuesses() {
         return numWrongGuesses;
     }
@@ -52,6 +56,10 @@ public class GuessInfo implements Serializable {
 
     public void setCategories(String category) {
         categories.add(category);
+    }
+
+    public void removeCategory(){
+        categories.remove(categories.size() - 1);
     }
 
     public int getNumWordsGuessed() {
