@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -24,11 +25,11 @@ public class WordGuessServer extends Application {
 	HashMap<String, Scene> sceneMap;
 	ListView<String> listItems;
 	ServerLogic serverConnection;
+	TextField portNumber;
 
 	// set up initial scene for entering portNumber
 	Button serverChoice;
 	Text portInstructions = new Text();
-	TextField portNumber = new TextField("5555");
 
 	// set up background images
 	Image background = new Image("initialServerBackground.jpg");
@@ -48,6 +49,11 @@ public class WordGuessServer extends Application {
 		// ---------------------------------------------------
 		// initialize the hashmap to store scenes
 		sceneMap = new HashMap<String, Scene>();
+		portNumber = new TextField();
+
+		// prevent user from being able to enter more than 4 characters for port
+		portNumber.setTextFormatter(new TextFormatter<String>(change ->
+				change.getControlNewText().length() <= 4 ? change : null));
 
 		// initialize the ListView
 		listItems = new ListView<String>();
@@ -90,8 +96,6 @@ public class WordGuessServer extends Application {
 		});
 
 	}
-
-
 
 
 	// ----------------------------------------------

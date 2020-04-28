@@ -159,6 +159,7 @@ public class ServerLogic {
                 words.add(foodCategoryWords.get(randomNum));
 
             serverInfo.setWord(words.get(0).length());
+            System.out.println("Word is " + words.get(0));
             try {
                 out.writeObject(serverInfo);
             }
@@ -230,12 +231,13 @@ public class ServerLogic {
                             }
                             // If the letter exists in the word being guessed
                             else{
+                                wordCreation = serverInfo.getWord();
                                 for(int i = 0; i < words.get(words.size() - 1).length(); i++){
-                                    if(words.get(words.size() - 1).charAt(i) == letter)
-                                        wordCreation = wordCreation.concat(Character.toString(letter));
-                                    else
-                                        wordCreation = wordCreation.concat("_");
+                                    if(words.get(words.size() - 1).charAt(i) == letter){
+                                        wordCreation = wordCreation.substring(0, i) + letter + wordCreation.substring(i+1);
+                                    }
                                 }
+                                System.out.println("New word is " + wordCreation);
                                 serverInfo.setWord(wordCreation);
                                 // If the player guesses the entire word correctly.
                                 if(wordCreation.equals(words.get(words.size() - 1))){
@@ -247,6 +249,7 @@ public class ServerLogic {
                                     gameOver = false;
 
                                 }
+                                out.reset();
                                 out.writeObject(serverInfo); // Send the GuessInfo after the guess.
                             }
                         }
@@ -261,7 +264,7 @@ public class ServerLogic {
                             int lastIndex = serverInfo.getCategories().size() - 1;
 
                             String randWord;
-                            if (serverInfo.getCategories().get(lastIndex) == "Games")
+                            if (serverInfo.getCategories().get(lastIndex) == "Video Games")
                                 //words.add(gamesCategoryWords.get(randomNum));
                                 randWord = gamesCategoryWords.get(randomNum);
                             else if (serverInfo.getCategories().get(lastIndex) == "Sports")
@@ -280,6 +283,7 @@ public class ServerLogic {
                         serverInfo.clearGuesses();
                         serverInfo.setNumWrongGuesses(0);
                         serverInfo.setWord(words.get(words.size() - 1).length());
+                        out.reset();
                         out.writeObject(serverInfo);
 
                         guess = true;
