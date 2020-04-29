@@ -97,28 +97,6 @@ public class ServerLogic {
             this.number = count;
         }
 
-        // update client with relevant info
-        public void updateClient() {
-//            try {
-//                client.out.writeObject();
-//                client.out.reset();
-//                client.out.reset();
-//            }
-//            catch (Exception e) {
-//
-//            }
-        }
-
-        // update server with relevant info
-        public void updateServer() {
-
-        }
-
-        // logic for the game
-        public void lossCheck(ArrayList<String> words, ArrayList<String> categories) {
-
-        }
-
         public void run() {
             try {
                 in = new ObjectInputStream(connection.getInputStream());
@@ -159,7 +137,6 @@ public class ServerLogic {
                 words.add(foodCategoryWords.get(randomNum));
 
             serverInfo.setWord(words.get(0).length());
-            System.out.println("Word is " + words.get(0));
             try {
                 out.writeObject(serverInfo);
             }
@@ -203,8 +180,6 @@ public class ServerLogic {
 
                                     // this for loops just counts up the words based on category (hopefully none are >= 4)
                                     for(int i = 0; i < size; i++){
-//                                        if(serverInfo.getCategories().get(i).equals(serverInfo.getCategories().get(size - 1)))
-//                                            count++;
                                         if(gamesCategoryWords.contains(words.get(i)))
                                             gameCount++;
                                         else if (foodCategoryWords.contains(words.get(i)))
@@ -220,12 +195,6 @@ public class ServerLogic {
                                         category = false;
                                         gameOver = true;
                                     }
-//                                    if(count == 3){ // If the player messes up the guess on the same category 3 times
-//                                    callback.accept("Player " + number + " lost the game!");
-//                                    guess = false;
-//                                    category = false;
-//                                    gameOver = true;
-//                                    }
 
                                 }
                                 out.reset();
@@ -239,7 +208,6 @@ public class ServerLogic {
                                         wordCreation = wordCreation.substring(0, i) + letter + wordCreation.substring(i+1);
                                     }
                                 }
-                                System.out.println("New word is " + wordCreation);
                                 serverInfo.setWord(wordCreation);
                                 // If the player guesses the entire word correctly.
                                 if(wordCreation.equals(words.get(words.size() - 1))){
@@ -254,7 +222,6 @@ public class ServerLogic {
                                         category = false;
                                         gameOver = true;
                                         callback.accept("Player " + number + " won the game!");
-                                        serverInfo.setWord("Victory");
                                     }
                                 }
                                 out.reset();
@@ -307,8 +274,12 @@ public class ServerLogic {
                             clients.remove(this);
                             break;
                         }
-                        else
+                        else{
                             serverInfo = playerInfo;
+                            guess = false;
+                            category = true;
+                            gameOver = false;
+                        }
                     }
                 }
                 catch (Exception e) {
