@@ -194,6 +194,7 @@ public class ServerLogic {
                                         guess = false;
                                         category = false;
                                         gameOver = true;
+                                        serverInfo.setWord("game over");
                                     }
 
                                 }
