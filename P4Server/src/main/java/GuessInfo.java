@@ -17,6 +17,7 @@ public class GuessInfo implements Serializable {
         numWordsGuessed = 0;
     }
 
+    // Clears the guesses
     public void clearGuesses(){
         this.guesses.clear();
     }
