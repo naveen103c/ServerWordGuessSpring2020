@@ -317,6 +317,8 @@ public class ServerLogic {
                             // Reset the server's GuessInfo with the player's GuessInfo
                             serverInfo = playerInfo;
 
+                            words.clear(); // Clear out the words
+
                             /* Update the game's state */
                             guess = false;
                             category = true;
